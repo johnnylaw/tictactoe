@@ -45,39 +45,17 @@ angular.module("TicTac", ["firebase"])
  		return !$scope.obj.board.join().match(currentSymbol());
  	};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
  	var iDontHaveASymbol = function() {
  		return !mySymbol;
  	};
  	var symbolIsPlayableByThisBrowser = function() {
  		return itIsMyTurn() || (currentSymbolUnused() && iDontHaveASymbol());
-
  	} 
 
  	var isLegalMove = function(idx) {
  		return isCellEmpty(idx) && symbolIsPlayableByThisBrowser();
  	};
+
  	$scope.makeMove = function(idx) {
  		if(isLegalMove(idx)) {   
 			mySymbol = $scope.obj.board[idx] = currentSymbol();
